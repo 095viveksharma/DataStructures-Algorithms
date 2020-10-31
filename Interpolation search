@@ -1,0 +1,40 @@
+#include<conio.h>
+#include<stdio.h>
+int interpolation(int a[],int low,int high,int val);
+
+int main()
+{
+      int n,a[10],val,pos,i;
+      printf("Enter the no of elements in the array: ");
+      scanf("%d",&n);
+      for(i=0;i<n;i++)
+      {
+            printf("arr[%d]=",i);
+            scanf("%d",&a[i]);
+      }
+      printf("Enter the item to be searched: ");
+      scanf("%d",&val);
+      pos=interpolation(a,0,n-1,val);
+      if(pos==-1)
+            printf("Item not found: ");
+      else
+            printf("item %d is found at position %d",val,pos);
+      return 0;
+}
+int interpolation(int a[],int low,int high,int val)
+{
+      int mid;
+      while(low<=high)
+      {
+            mid=low+(high-low)*((val-a[low])/(a[high]-a[low]));
+            if(val == a[mid])
+                  return mid;
+            if(val < a[mid])
+            {
+              high = mid-1;
+            }
+            else
+                  low = mid + 1;
+      }
+            return -1;
+}
