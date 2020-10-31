@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<conio.h>
+
+void bubble_sort(int arr[], int n);
+void display(int arr[], int n);
+
+void main()
+ {
+       int i,n,arr[10];
+       printf("Enter the number of elements in the array: ");
+        scanf("%d",&n);
+       for(i=0;i<n;i++)
+       {
+             printf("arr[%d]=",i);
+             scanf("%d",&arr[i]);
+       }
+       bubble_sort(arr,n);
+       display(arr,n);
+ }
+
+void bubble_sort(int arr[], int n)
+ {
+       int temp, i,j;
+       for(i=0;i<n;i++)
+       {
+             for(j=0;j<n-i;j++)
+             {
+                   if(arr[j]>arr[j+1])
+                   {
+                         temp=arr[j];
+                         arr[j]=arr[j+1];
+                         arr[j+1]=temp;
+                   }
+             }
+       }
+ }
+
+ void display(int arr[], int n)
+ {
+       int k;
+       printf("\nArray after sorting: \n");
+       for(k=0;k<n;k++)
+       {
+             printf("arr[%d]=%d\n",k,arr[k]);
+       }
+       getch();
+ }
