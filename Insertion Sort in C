@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<conio.h>
+
+void insertion_sort(int arr[], int n);
+
+ void main()
+ {
+       int arr[10],i,n,j,k;
+       printf("Enter the no of elements in the array:  ");
+       scanf("%d",&n);
+       printf("Enter the element in the array: \n");
+       for(i=0;i<n;i++)
+       {
+             printf("arr[%d]=",i);
+             scanf("%d",&arr[i]);
+       }
+       insertion_sort(arr,n);
+       printf("\n sorted array is:  \n");
+       for(i=0;i<n;i++)
+       printf("arr[%d]=%d\n",i,arr[i]);
+       getch();
+ }
+
+ void insertion_sort(int arr[], int n)
+ {
+       int k,j, temp;
+       for(k=1;k<n;k++)
+       {
+             temp=arr[k];
+             j=k-1;
+             while((temp<arr[j])&& (j>=0))
+             {
+                   arr[j+1]=arr[j];
+                   j--;
+             }
+             arr[j+1]=temp;
+       }
+ }
