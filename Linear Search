@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+void create_random_list(int *a,int n);
+void linear_search(int *a, int n, int item);
+int main()
+{
+      int n,a[100],item;
+      printf("Enter the no of element in the array: (between 1 to 100) ");
+      scanf("%d",&n);
+      create_random_list(a,n);
+      linear_search(a,n,item);
+      getch();
+}
+
+void create_random_list(int *a,int n)
+{
+      int i,j=1;
+      for(i=0;i<n;i++)
+      {
+        printf("%d\t",a[i]=rand()%100);
+      if(j==10)
+      {
+            printf("\n");
+            j=0;
+      }
+      j++;
+      }
+      printf("\n");
+}
+
+void linear_search(int *a, int n, int item)
+{
+      int loc=0;
+      printf("Enter the element which you want to search: ");
+      scanf("%d",&item);
+      while(a[loc]!=item && loc<n)
+      {
+            loc=loc+1;
+      }
+      if(loc==n)
+            printf("Search complete item not found");
+      else
+            printf("Element %d is found at %d position",a[loc],loc);
+
+}
